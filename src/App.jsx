@@ -5,7 +5,7 @@ import { Logout } from './Logout';
 import { SzallasList } from './SzallasList';
 import { SzallasSingle } from './SzallasSingle';
 import './App.css';
-
+//próba
 export const App = () => {
   return (
     <Router>
