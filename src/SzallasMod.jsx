@@ -125,7 +125,7 @@ return (
             </div>
             <Link to="/SzallasList" className="bi bi-backspace-fill fs-5 btn btn-danger">Vissza</Link>
             &nbsp;&nbsp;&nbsp;
-            <button type="submit" className="btn btn-success">Küldés</button>
+            <button type="submit" className="btn btn-success fs-5">Küldés</button>
         </form>
     </div>
     </div>

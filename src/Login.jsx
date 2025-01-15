@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as THREE from "three";
-import NET from "vanta/dist/vanta.net.min";
+import WAVES from "vanta/dist/vanta.waves.min";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,18 +11,29 @@ export const Login = () => {
   const navigate = useNavigate();
   const vantaRef = useRef(null);
 
-
   useEffect(() => {
-    const vantaEffect = NET({
-      el: vantaRef.current,
-      THREE,
-      color: 0xff0000, // Karácsonyi piros
-      backgroundColor: 0x001f3f, // Mélykék háttér
-      points: 12.0,
-      maxDistance: 20.0,
-      spacing: 18.0,
-    });
-
+    let vantaEffect;
+    if (vantaRef.current) {
+      try {
+        vantaEffect = WAVES({
+          el: vantaRef.current,
+          THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 150.0,
+          minWidth: 150.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          backgroundColor: 0x001f3f,
+          color1: 0xff4500,
+          color2: 0x28a745,
+        });
+      } catch (error) {
+        console.error("[vanta.js] waves init error:", error);
+      }
+    }
+  
     return () => {
       if (vantaEffect) vantaEffect.destroy();
     };
