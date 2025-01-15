@@ -42,7 +42,6 @@ export const Login = () => {
       setError(
         "Hitelesítés sikertelen. Ellenőrízd a bejelentkezési adatokat!"
       );
-      console.error("Hiba a bejelentkezés során: ", error);
     }
   };
 
